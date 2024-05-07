@@ -2,12 +2,7 @@ const Genre = require("../models/GenreModel");
 
 // Récupérer tous les genres
 exports.getAllGenres = async (req, res) => {
-  try {
-    const genres = await Genre.find({});
-    res.status(200).json(genres);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  res.send("Hello World");
 };
 
 // Ajouter un genre
