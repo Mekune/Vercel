@@ -1,0 +1,64 @@
+{
+    "style": [
+        { 
+            "id": 1,
+            "title": "Website",
+            "description": "body of website",
+            "BPM": "100-120",
+            "instruments" : ["guitar","piano"],
+            "author": "mekune"
+        },
+        { 
+            "id": 1,
+            "title": "Website",
+            "description": "body of website",
+            "BPM": "100-120",
+            "instruments" : ["guitar","piano"],
+            "author": "mekune"
+        },
+        { 
+            "id": 1,
+            "title": "Website",
+            "description": "body of website",
+            "BPM": "100-120",
+            "instruments" : ["guitar","piano"],
+            "author": "mekune"
+        },
+        { 
+            "id": 1,
+            "title": "Website",
+            "description": "body of website",
+            "BPM": "100-120",
+            "instruments" : ["guitar","piano"],
+            "author": "mekune"
+        }
+    ],
+    "login":[
+        {
+            "id": 1,
+            "login":"nansD",
+            "password":"nanspass"
+        },
+        {
+            "id": 2,
+            "login":"florianF",
+            "password":"$2a$10$mjq6fy6CCJvZY7T7lnbkUe7o7JHIc8FgDCrcu161QjdnWUzK/Mld6"
+        },
+        {
+            "id": 3,
+            "login":"niclasV",
+            "password":"nanspass"
+        },
+        {
+            "id": 4,
+            "login":"nicolasC",
+            "password":"nanspass"
+        },
+        {
+            "id": 5,
+            "login":"lenyS",
+            "password":"nanspass"
+        }
+    ]
+}
+

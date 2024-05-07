@@ -1,0 +1,149 @@
+/* Dans votre fichier CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles de base */
+body {
+  font-family: "Verdana";
+  background-image: url("../image/BG5.jpg");
+  background-size: cover; /* Ajuste la taille de l'image pour remplir l'élément */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  background-position: center center; /* Centre l'image horizontalement et verticalement */
+}
+
+body::after {
+  content: ""; /* Ajoute un pseudo-élément après le contenu du body */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
+  z-index: -20; /* Place le pseudo-élément derrière le contenu */
+  backdrop-filter: blur(15px); /* Ajoute un effet de flou au contenu sous-jacent */
+}
+
+
+
+iframe{
+  /* border-radius: 50px; */
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 50px;
+  max-width: 650px;
+}
+
+@media screen and (max-width: 768px) {
+  iframe{
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 50px;
+  }
+}
+#cloud {
+  width: 350px;
+  height: 120px;
+  background: #dbe7f8; /* Couleur bleu ciel */
+  border-radius: 100px;
+  position: relative;
+  margin: 180px auto 100px;
+  transform: rotate(-80deg); /* Rotation pour rendre le nuage vertical */
+  animation: breathe 5s infinite alternate; /* Animation de respiration */
+}
+
+@keyframes breathe {
+  from { transform: rotate(-5deg) scale(0.95); }
+  to { transform: rotate(5deg) scale(1.05); }
+}
+#cloud{
+  background: #aeb5be; /* Couleur bleu ciel */
+}
+#cloud:after,
+#cloud:before {
+  content: "";
+  position: absolute;
+  background: #aeb5be; /* Couleur bleu ciel */
+  z-index: -1;
+}
+
+#cloud:after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+  border-radius: 100px;
+}
+
+#cloud:before {
+  width: 180px;
+  height: 180px;
+  top: -90px;
+  right: 50px;
+  border-radius: 200px;
+}
+
+.shadow {
+  width: 300px;
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  background: #000;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+.ts{
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
+/* pour react grill  */
+
+.style{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.style  h1{
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.55);
+
+}
+.style  h2{
+  font-size: larger;
+  font-weight: 600;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  margin-left: 5%;
+
+
+}
+.style  h3{
+  align-self: self-start;
+  font-size: x-large;
+  font-weight: 400;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  margin-left: 2.5em;
+}
+
+.style  ul{
+  list-style-type: disc;
+}
+
+.style  ol{
+  list-style-type: decimal;
+}
+
+.style  p{
+  line-height: 1.6;
+  margin-bottom: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.style a{
+  color: blue;
+}
