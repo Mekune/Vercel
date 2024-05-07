@@ -28,7 +28,7 @@ const ModalProfil = ({ show, onClose }) => {
   const getIdByUsername = async (username) => {
     try {
       const response = await axios.get(
-        `https://vercel-back-sigma.vercel.app//users/id/${username}`
+        `https://vercel-back-sigma.vercel.app/users/id/${username}`
       );
       return response.data.userId;
     } catch (error) {
@@ -41,7 +41,7 @@ const ModalProfil = ({ show, onClose }) => {
     try {
       const userId = await getIdByUsername(storedUsername);
       const response = await axios.put(
-        `https://vercel-back-sigma.vercel.app//users/${userId}`,
+        `https://vercel-back-sigma.vercel.app/users/${userId}`,
         {
           acutalUsername: localStorage.getItem("Username"),
           username: value,

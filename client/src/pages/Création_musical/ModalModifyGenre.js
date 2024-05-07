@@ -23,7 +23,7 @@ const ModalModifyGenre = ({ genre, Duration, onClose, isOpen }) => {
     const fetchInstruments = async () => {
       try {
         const response = await axios.get(
-          "https://vercel-back-sigma.vercel.app/listeInstruments"
+          "https://vercel-back-ngqsidty5-mekunes-projects.vercel.app/listeInstruments"
         );
         if (response.data) {
           setFormData((prevFormData) => ({
@@ -127,7 +127,7 @@ const ModalModifyGenre = ({ genre, Duration, onClose, isOpen }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3001/genres/update/${genre._id}`,
+        `https://vercel-back-ngqsidty5-mekunes-projects.vercel.app/genres/update/${genre._id}`,
         {
           Titre: formData.Titre,
           Description: formData.Description,

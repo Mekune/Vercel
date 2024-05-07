@@ -20,9 +20,7 @@ var maoRouter = require("./routes/mao");
 
 var app = express();
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(
-  cors({ origin: "https://vercel-back-ngqsidty5-mekunes-projects.vercel.app/" })
-);
+app.use(cors({ origin: "https://vercel-back-sigma.vercel.app/" }));
 
 // view engine setup
 // app.set("views", path.join(__dirname, "views"));
