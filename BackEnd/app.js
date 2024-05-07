@@ -15,11 +15,11 @@ var listeInstrumentsRoutes = require("./routes/listeinstruments");
 var théorieMusicalRouter = require("./routes/theorieMusical");
 var maoRouter = require("./routes/mao");
 
-// const swaggerUi = require("swagger-ui-express");
-// const swaggerDocument = require("./swagger.json"); // Chemin vers votre fichier swagger.json
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json"); // Chemin vers votre fichier swagger.json
 
 var app = express();
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(cors({ origin: "http://localhost:3000" }));
 
 // view engine setup
