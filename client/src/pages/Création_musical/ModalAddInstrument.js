@@ -14,7 +14,7 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://vercel-back-sigma.vercel.app/listeInstruments`
+          `https://vercel-back-git-main-mekunes-projects.vercel.app/listeInstruments`
         );
         const sortedInstruments = response.data.sort();
         setAvailableInstruments(sortedInstruments);
@@ -38,7 +38,7 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
       }
 
       const response = await axios.put(
-        `https://vercel-back-sigma.vercel.app/listeInstruments/modify/${id}`,
+        `https://vercel-back-git-main-mekunes-projects.vercel.app/listeInstruments/modify/${id}`,
         { instrument: formattedInstrument }
       );
       setInstrument("");
@@ -53,7 +53,7 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
   const handleInstrumentClick = async (instrumentIndex) => {
     try {
       const response = await axios.delete(
-        `https://vercel-back-sigma.vercel.app/listeInstruments/delete/${instrumentIndex}`
+        `https://vercel-back-git-main-mekunes-projects.vercel.app/listeInstruments/delete/${instrumentIndex}`
       );
       setAvailableInstruments((prevInstruments) =>
         prevInstruments.filter((inst, index) => index !== instrumentIndex)

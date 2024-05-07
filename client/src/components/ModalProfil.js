@@ -28,7 +28,7 @@ const ModalProfil = ({ show, onClose }) => {
   const getIdByUsername = async (username) => {
     try {
       const response = await axios.get(
-        `https://vercel-back-sigma.vercel.app/users/id/${username}`
+        `https://vercel-back-git-main-mekunes-projects.vercel.app/users/id/${username}`
       );
       return response.data.userId;
     } catch (error) {

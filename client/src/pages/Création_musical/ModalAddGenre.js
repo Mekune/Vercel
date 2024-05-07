@@ -29,7 +29,7 @@ const ModalAllGenre = ({
     const fetchInstruments = async () => {
       try {
         const response = await axios.get(
-          "https://vercel-back-sigma.vercel.app/listeInstruments"
+          "https://vercel-back-git-main-mekunes-projects.vercel.app/listeInstruments"
         );
         setFormData((prevFormData) => ({
           ...prevFormData,
