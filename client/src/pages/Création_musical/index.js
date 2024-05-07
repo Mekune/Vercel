@@ -22,7 +22,7 @@ export default function Création_musical() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://vercel-back-git-main-mekunes-projects.vercel.app/genres");
+        const response = await axios.get("http://localhost:3001/genres");
         const sortedGenres = response.data.sort((a, b) =>
           a.Titre.localeCompare(b.Titre)
         );

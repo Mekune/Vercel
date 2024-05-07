@@ -28,7 +28,7 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
       });
 
       const response = await axios.post(
-        "https://vercel-back-git-main-mekunes-projects.vercel.app/theorieMusical/add",
+        "http://localhost:3001/theorieMusical/add",
         formData,
         {
           headers: {

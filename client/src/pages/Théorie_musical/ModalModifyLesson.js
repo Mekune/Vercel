@@ -32,7 +32,7 @@ const ModalModifyLesson = ({ lesson, Duration, onClose, isOpen }) => {
       });
 
       const response = await axios.put(
-        `https://vercel-back-git-main-mekunes-projects.vercel.app/theorieMusical/update/${lesson._id}`,
+        `http://localhost:3001/theorieMusical/update/${lesson._id}`,
         formData,
         {
           headers: {

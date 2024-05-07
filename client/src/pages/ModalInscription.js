@@ -25,7 +25,7 @@ const ModalInscription = ({ show, onClose }) => {
     const getInscriptionPasswordListe = async () => {
       try {
         const response = await axios.get(
-          "https://vercel-back-git-main-mekunes-projects.vercel.app/InscriptionPassword"
+          "http://localhost:3001/InscriptionPassword"
         );
         const newListe = response.data.liste.map((element) =>
           element.toString()
@@ -40,7 +40,7 @@ const ModalInscription = ({ show, onClose }) => {
     const getIndex = async () => {
       try {
         const response = await axios.get(
-          "https://vercel-back-git-main-mekunes-projects.vercel.app/IndexInscriptionPassword"
+          "http://localhost:3001/IndexInscriptionPassword"
         );
         setIndex(response.data.Index);
       } catch (error) {
@@ -61,7 +61,7 @@ const ModalInscription = ({ show, onClose }) => {
         newValue = 0;
       }
       const response = await axios.put(
-        `https://vercel-back-git-main-mekunes-projects.vercel.app/IndexInscriptionPassword/${newValue}`
+        `http://localhost:3001/IndexInscriptionPassword/${newValue}`
       );
       setIndex(response.data.i);
     } catch (error) {

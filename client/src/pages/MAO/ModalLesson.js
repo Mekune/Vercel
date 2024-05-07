@@ -27,7 +27,7 @@ const ModalLesson = ({ lesson, Duration, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `https://vercel-back-git-main-mekunes-projects.vercel.app/mao/delete/${lesson._id}`
+        `http://localhost:3001/mao/delete/${lesson._id}`
       );
 
       if (response.status === 200) {

@@ -68,7 +68,7 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post(
-        "https://vercel-back-git-main-mekunes-projects.vercel.app/users/add",
+        "http://localhost:3001/users/add",
         formData
       );
       localStorage.setItem("Username", formData.username);

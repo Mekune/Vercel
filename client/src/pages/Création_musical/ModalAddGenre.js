@@ -29,7 +29,7 @@ const ModalAllGenre = ({
     const fetchInstruments = async () => {
       try {
         const response = await axios.get(
-          "https://vercel-back-git-main-mekunes-projects.vercel.app/listeInstruments"
+          "http://localhost:3001/listeInstruments"
         );
         setFormData((prevFormData) => ({
           ...prevFormData,
@@ -120,7 +120,7 @@ const ModalAllGenre = ({
 
     try {
       const response = await axios.post(
-        "https://vercel-back-sigma.vercel.app/genres/add",
+        "http://localhost:3001/genres/add",
         {
           Titre: formData.Titre,
           Description: formData.Description,
