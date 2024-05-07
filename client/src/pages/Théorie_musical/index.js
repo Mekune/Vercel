@@ -22,7 +22,7 @@ const TheorieMusical = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/TheorieMusical"
+          "https://vercel-back-sigma.vercel.app/TheorieMusical"
         );
         const sortedLessons = response.data.sort((a, b) =>
           a.Titre.localeCompare(b.Titre)

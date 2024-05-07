@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { motion } from "framer-motion"; // Import de Framer Motion
+import { motion } from "framer-motion";
 import Oeil from "../ressources/image/oeil.png";
 import OeilB from "../ressources/image/oeilB.png";
 
@@ -28,7 +28,7 @@ const ModalProfil = ({ show, onClose }) => {
   const getIdByUsername = async (username) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/users/id/${username}`
+        `https://vercel-back-sigma.vercel.app//users/id/${username}`
       );
       return response.data.userId;
     } catch (error) {
@@ -41,7 +41,7 @@ const ModalProfil = ({ show, onClose }) => {
     try {
       const userId = await getIdByUsername(storedUsername);
       const response = await axios.put(
-        `http://localhost:3001/users/${userId}`,
+        `https://vercel-back-sigma.vercel.app//users/${userId}`,
         {
           acutalUsername: localStorage.getItem("Username"),
           username: value,

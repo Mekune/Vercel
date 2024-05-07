@@ -58,7 +58,7 @@ const Connexion = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/users/connexion",
+        "https://vercel-back-sigma.vercel.app/users/connexion",
         {
           username,
           password,

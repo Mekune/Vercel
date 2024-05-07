@@ -21,7 +21,7 @@ const TheorieMusical = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/Mao");
+        const response = await axios.get("https://vercel-back-sigma.vercel.app//Mao");
         const sortedLessons = response.data.sort((a, b) =>
           a.Titre.localeCompare(b.Titre)
         );

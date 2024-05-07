@@ -23,7 +23,7 @@ const ModalModifyGenre = ({ genre, Duration, onClose, isOpen }) => {
     const fetchInstruments = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/listeInstruments"
+          "https://vercel-back-sigma.vercel.app/listeInstruments"
         );
         if (response.data) {
           setFormData((prevFormData) => ({
