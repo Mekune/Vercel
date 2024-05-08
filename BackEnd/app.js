@@ -20,18 +20,16 @@ const swaggerDocument = require("./swagger.json"); // Chemin vers votre fichier 
 
 var app = express();
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(cors({ origin: process.env.REACT_APP_FRONT_URL }));
+app.use(cors({ origin: "http://localhost:3000" }));
 
 // view engine setup
 // app.set("views", path.join(__dirname, "views"));
 // app.set("view engine", "jade");
 
-//test
-
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log("Back OK");
+    console.log("LA CAVALERIE EST LA ");
   })
   .catch((error) => {
     console.log(error);
