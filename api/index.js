@@ -1,5 +1,6 @@
 require("dotenv").config();
 var createError = require("http-errors");
+var cors = require("cors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
@@ -19,6 +20,17 @@ var maoRouter = require("./routes/mao");
 
 var app = express();
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(
+  cors({
+    origin: process.env.REACT_APP_FRONT_URL,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
+// view engine setup
+// app.set("views", path.join(__dirname, "views"));
+// app.set("view engine", "jade");
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -56,7 +68,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.json({ error: err.message });
+  res.render("error");
 });
 
 module.exports = app;
