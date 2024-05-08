@@ -14,7 +14,7 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${REACT_APP_BACK_URL}/listeInstruments`
+          `${process.env.REACT_APP_BACK_URL}/listeInstruments`
         );
         const sortedInstruments = response.data.sort();
         setAvailableInstruments(sortedInstruments);
@@ -38,7 +38,7 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
       }
 
       const response = await axios.put(
-        `${REACT_APP_BACK_URL}/listeInstruments/modify/${id}`,
+        `${process.env.REACT_APP_BACK_URL}/listeInstruments/modify/${id}`,
         { instrument: formattedInstrument }
       );
       setInstrument("");
@@ -53,7 +53,7 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
   const handleInstrumentClick = async (instrumentIndex) => {
     try {
       const response = await axios.delete(
-        `${REACT_APP_BACK_URL}/listeInstruments/delete/${instrumentIndex}`
+        `${process.env.REACT_APP_BACK_URL}/listeInstruments/delete/${instrumentIndex}`
       );
       setAvailableInstruments((prevInstruments) =>
         prevInstruments.filter((inst, index) => index !== instrumentIndex)

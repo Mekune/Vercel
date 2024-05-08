@@ -22,7 +22,7 @@ export default function Création_musical() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${REACT_APP_BACK_URL}/genres`);
+        const response = await axios.get(`${process.env.REACT_APP_BACK_URL}/genres`);
         const sortedGenres = response.data.sort((a, b) =>
           a.Titre.localeCompare(b.Titre)
         );

@@ -68,7 +68,7 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post(
-        `${REACT_APP_BACK_URL}/users/add`,
+        `${process.env.REACT_APP_BACK_URL}/users/add`,
         formData
       );
       localStorage.setItem("Username", formData.username);

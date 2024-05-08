@@ -58,7 +58,7 @@ const Connexion = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${REACT_APP_BACK_URL}/users/connexion`,
+        `${process.env.REACT_APP_BACK_URL}/users/connexion`,
         {
           username,
           password,
