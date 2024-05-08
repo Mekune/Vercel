@@ -17,7 +17,7 @@ var maoRouter = require("./routes/mao");
 
 // const swaggerUi = require("swagger-ui-express");
 // const swaggerDocument = require("./swagger.json"); // Chemin vers votre fichier swagger.json
-
+//test
 var app = express();
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(
