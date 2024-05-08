@@ -35,6 +35,7 @@ app.use(
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
+    console.log("-" + process.env.REACT_APP_FRONT_URL);
     console.log("LA CAVALERIE EST LA ");
   })
   .catch((error) => {

@@ -22,6 +22,7 @@ const ModalInscription = ({ show, onClose }) => {
   // const codesList = "3141592653";
 
   useEffect(() => {
+    console.log("OUI");
     const getInscriptionPasswordListe = async () => {
       try {
         const response = await axios.get(
@@ -32,7 +33,7 @@ const ModalInscription = ({ show, onClose }) => {
         );
         setCodeList(newListe);
       } catch (error) {
-        console.error("Login failed:", error.response.data);
+        console.error("Login failed:", error.response);
         setError("Identifiants incorrects. Veuillez réessayer.");
       }
     };

@@ -56,10 +56,6 @@ const Connexion = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!username || !password) {
-      setError("Veuillez remplir tous les champs");
-      return;
-    }
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_BACK_URL}/users/connexion`,

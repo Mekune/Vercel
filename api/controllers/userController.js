@@ -54,6 +54,7 @@ exports.getIdByUsername = async (req, res, next) => {
     return next(error); // Passer l'erreur au middleware de gestion des erreurs
   }
 };
+
 exports.connexion = async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -75,14 +76,13 @@ exports.connexion = async (req, res) => {
 
     res.json({ token });
   } catch (error) {
-    console.error("Login error:", error); // Ajout de cette ligne pour voir l'erreur dans la console
+    console.error("Login error:", error);
     res.status(500).json({ message: "Erreur serveur" });
   }
 };
-
 exports.updateUserById = async (req, res) => {
   const { id } = req.params; // Récupérer l'ID de l'utilisateur depuis les paramètres de la requête
-  const { actualUsername, username, password } = req.body;
+  const { acutalUsername, username, password } = req.body;
 
   try {
     // Vérifiez si l'ID fourni est un ID MongoDB valide
@@ -105,26 +105,20 @@ exports.updateUserById = async (req, res) => {
 
     hashedPassword = bcrypt.hashSync(password, salt);
 
-    // Obtenir l'utilisateur actuel
-    const user = await User.findById(id);
-
-    if (!user) {
-      return res.status(404).json({ message: "Utilisateur non trouvé" });
-    }
-
     // Obtenir la liste des usernames existants
     let existingUsernames = await exports.getAllUsername();
 
+    // Récupérer l'username actuel
+
     // Exclure l'username actuel de la liste existingUsernames
     existingUsernames = existingUsernames.filter(
-      (username) => username !== actualUsername
+      (username) => username !== acutalUsername
     );
 
     // Vérifier si l'username existe déjà dans la liste
     if (username && existingUsernames.includes(username)) {
       return res.status(400).json({ message: "Cet username existe déjà" });
     }
-
     // Préparer les données à mettre à jour
     const updatedUserData = {};
     if (username) {
@@ -136,6 +130,10 @@ exports.updateUserById = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(id, updatedUserData, {
       new: true,
     });
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
 
     res.status(200).json(updatedUser);
   } catch (error) {
