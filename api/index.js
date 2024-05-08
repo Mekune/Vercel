@@ -20,8 +20,12 @@ var maoRouter = require("./routes/mao");
 
 var app = express();
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(cors({ origin: process.env.REACT_APP_FRONT_URL }));
-
+app.use(
+  cors({
+    origin: process.env.REACT_APP_FRONT_URL,
+    allowedHeaders: ["Content-Type"],
+  })
+);
 // view engine setup
 // app.set("views", path.join(__dirname, "views"));
 // app.set("view engine", "jade");
