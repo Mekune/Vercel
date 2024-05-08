@@ -29,7 +29,7 @@ const ModalAllGenre = ({
     const fetchInstruments = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/listeInstruments"
+          `${REACT_APP_BACK_URL}/listeInstruments`
         );
         setFormData((prevFormData) => ({
           ...prevFormData,
@@ -120,7 +120,7 @@ const ModalAllGenre = ({
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/genres/add",
+        `${REACT_APP_BACK_URL}/genres/add`,
         {
           Titre: formData.Titre,
           Description: formData.Description,

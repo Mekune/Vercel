@@ -28,7 +28,7 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
       });
 
       const response = await axios.post(
-        "http://localhost:3001/theorieMusical/add",
+        `${REACT_APP_BACK_URL}/theorieMusical/add`,
         formData,
         {
           headers: {

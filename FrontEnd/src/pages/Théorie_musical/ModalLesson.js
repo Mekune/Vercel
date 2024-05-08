@@ -27,7 +27,7 @@ const ModalLesson = ({ lesson, Duration, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3001/theorieMusical/delete/${lesson._id}`
+        `${REACT_APP_BACK_URL}/theorieMusical/delete/${lesson._id}`
       );
 
       if (response.status === 200) {

@@ -21,7 +21,7 @@ const TheorieMusical = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/Mao");
+        const response = await axios.get(`${REACT_APP_BACK_URL}/Mao`);
         const sortedLessons = response.data.sort((a, b) =>
           a.Titre.localeCompare(b.Titre)
         );

@@ -25,7 +25,7 @@ const ModalInscription = ({ show, onClose }) => {
     const getInscriptionPasswordListe = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/InscriptionPassword"
+          `${REACT_APP_BACK_URL}/InscriptionPassword`
         );
         const newListe = response.data.liste.map((element) =>
           element.toString()
@@ -40,7 +40,7 @@ const ModalInscription = ({ show, onClose }) => {
     const getIndex = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/IndexInscriptionPassword"
+          `${REACT_APP_BACK_URL}/IndexInscriptionPassword`
         );
         setIndex(response.data.Index);
       } catch (error) {
@@ -61,7 +61,7 @@ const ModalInscription = ({ show, onClose }) => {
         newValue = 0;
       }
       const response = await axios.put(
-        `http://localhost:3001/IndexInscriptionPassword/${newValue}`
+        `${REACT_APP_BACK_URL}/IndexInscriptionPassword/${newValue}`
       );
       setIndex(response.data.i);
     } catch (error) {

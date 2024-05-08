@@ -32,7 +32,7 @@ const ModalModifyLesson = ({ lesson, Duration, onClose, isOpen }) => {
       });
 
       const response = await axios.put(
-        `http://localhost:3001/mao/update/${lesson._id}`,
+        `${REACT_APP_BACK_URL}/mao/update/${lesson._id}`,
         formData,
         {
           headers: {

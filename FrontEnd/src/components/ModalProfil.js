@@ -28,7 +28,7 @@ const ModalProfil = ({ show, onClose }) => {
   const getIdByUsername = async (username) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/users/id/${username}`
+        `${process.env.FRONT_URL}/users/id/${username}`
       );
       return response.data.userId;
     } catch (error) {
@@ -41,7 +41,7 @@ const ModalProfil = ({ show, onClose }) => {
     try {
       const userId = await getIdByUsername(storedUsername);
       const response = await axios.put(
-        `http://localhost:3001/users/${userId}`,
+        `${REACT_APP_BACK_URL}/users/${userId}`,
         {
           acutalUsername: localStorage.getItem("Username"),
           username: value,

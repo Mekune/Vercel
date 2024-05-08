@@ -22,7 +22,7 @@ const TheorieMusical = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/TheorieMusical"
+          `${REACT_APP_BACK_URL}/TheorieMusical`
         );
         const sortedLessons = response.data.sort((a, b) =>
           a.Titre.localeCompare(b.Titre)

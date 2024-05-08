@@ -11,7 +11,7 @@ const ModalGenre = ({ genre, isAdmin, Duration, onClose }) => {
     try {
       // Envoyer une requête DELETE pour supprimer le genre avec l'ID correspondant
       const response = await axios.delete(
-        `http://localhost:3001/genres/delete/${genre._id}`
+        `${REACT_APP_BACK_URL}/genres/delete/${genre._id}`
       );
 
       // Vérifier le statut de la réponse
