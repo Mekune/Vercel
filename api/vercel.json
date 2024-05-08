@@ -12,7 +12,7 @@
         "dest": "/",
         "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
         "headers": {
-          "Access-Control-Allow-Origin": "${REACT_APP_FRONT_URL}"
+          "Access-Control-Allow-Origin": "https://vercel-front-three.vercel.app"
         }
       }
     ]
