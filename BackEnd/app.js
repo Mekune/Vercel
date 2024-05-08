@@ -29,7 +29,7 @@ app.use(cors({ origin: process.env.REACT_APP_FRONT_URL }));
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log("LA CAVALERIE EST LA ");
+    console.log("Back OK");
   })
   .catch((error) => {
     console.log(error);
