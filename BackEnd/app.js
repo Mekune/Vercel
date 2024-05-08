@@ -26,6 +26,8 @@ app.use(cors({ origin: process.env.REACT_APP_FRONT_URL }));
 // app.set("views", path.join(__dirname, "views"));
 // app.set("view engine", "jade");
 
+//test
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
