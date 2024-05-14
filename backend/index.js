@@ -23,10 +23,10 @@ var app = express();
 app.use(
   cors({
     origin: process.env.REACT_APP_FRONT_URL,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
   })
 );
+
 
 // view engine setup
 // app.set("views", path.join(__dirname, "views"));

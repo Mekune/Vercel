@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  # Service Backend
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app/backend
+      - ./backend/.env:/app/backend/.env
+    env_file:
+      - ./backend/.env
+    networks:
+      - liaison
+
+  # Service Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend
+    networks:
+      - liaison
+
+networks:
+  liaison:
+    driver: bridge
+
+volumes:
+  mongodb_data:
