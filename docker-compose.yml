@@ -9,8 +9,7 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./backend:/app/backend
-      - ./backend/.env:/app/backend/.env
+      - ./backend:/app
     env_file:
       - ./backend/.env
     networks:
@@ -24,7 +23,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app/frontend
+      - ./frontend:/app
     networks:
       - liaison
 
