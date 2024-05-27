@@ -65,14 +65,20 @@ const ModalGenre = ({ genre, isAdmin, Duration, onClose }) => {
     >
       <div className="fixed inset-0 flex items-center justify-center z-50 text-gray-800">
         <div className="absolute inset-0 bg-gray-800 opacity-75"></div>
-        <div className="relative bg-gray-300 p-8 rounded-lg z-50 w-4/6 h-4/6 flex flex-col">
+        <div className="relative bg-gray-300 p-8 rounded-lg z-50 w-4/6 min-h-4/6 flex flex-col">
           <h2 className="text-4xl font-bold mb-4 text-center">
             {genre && genre?.Titre}
           </h2>
-          <p className="italic text-sm text-center">
-            {genre && "'" + genre?.Description + "'"}
-          </p>
-          {genre && <p className="font-bold text-right">{genre.BPM} BPM</p>}
+          <div className="flex justify-center mb-4">
+            <p className="italic text-sm text-center">
+              {genre && "'" + genre?.Description + "'"}
+            </p>
+            {genre && (
+              <p className="absolute right-10 font-bold text-right">
+                {genre.BPM} BPM
+              </p>
+            )}
+          </div>
           <ul className="flex flex-wrap justify-evenly mb-5">
             {genre &&
               genre.Instrument.map((instrument, index) => (
@@ -81,10 +87,9 @@ const ModalGenre = ({ genre, isAdmin, Duration, onClose }) => {
                 </li>
               ))}
           </ul>
-
           {genre && genre.Exemple && (
             <YouTube
-              className="flex flex-col items-center h-72"
+              className="flex flex-col items-center h-full"
               videoId={extractVideoId(genre.Exemple)}
             />
           )}
@@ -93,8 +98,7 @@ const ModalGenre = ({ genre, isAdmin, Duration, onClose }) => {
               <h2>Aucune vidéo exemple disponible</h2>
             </div>
           )}
-          <div className="flex-grow"></div>
-          <div className="flex justify-end relative">
+          <div className="flex justify-end -mt-4">
             {genre && (
               <p className="font-bold text-right">
                 Dernière modification le {formatDate(genre.Date)} par{" "}
@@ -102,7 +106,7 @@ const ModalGenre = ({ genre, isAdmin, Duration, onClose }) => {
               </p>
             )}
           </div>
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between">
             {localStorage.getItem("Admin") === "true" && (
               <button
                 onClick={handleDelete} // Appeler la fonction de suppression

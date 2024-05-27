@@ -11,15 +11,14 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
   const [globalTitle, setGlobalTitle] = useState("");
   const [errors, setErrors] = useState({});
 
-  // Récupérer le nom de l'utilisateur depuis localStorage
   const lastUserModify = localStorage.getItem("Username");
 
   const handleAddLesson = async () => {
     try {
       const formData = new FormData();
       formData.append("Titre", globalTitle);
-      formData.append("LastUserModify", lastUserModify); // Ajouter le nom de l'utilisateur
-      formData.append("Date", new Date().toISOString()); // Ajouter la date actuelle
+      formData.append("LastUserModify", lastUserModify);
+      formData.append("Date", new Date().toISOString());
 
       lessonData.forEach((lesson, index) => {
         formData.append(`element[${index}][valeur]`, lesson.valeur);
@@ -100,21 +99,24 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
         <div className="fixed inset-0 flex items-center justify-center z-50 text-gray-800">
           <div className="absolute inset-0 bg-gray-800 opacity-75"></div>
           <div className="relative bg-white p-8 rounded-lg z-50 w-4/6 max-h-[calc(100vh-100px)] overflow-y-auto flex flex-col">
-            <h2 className="text-4xl font-bold mb-4 text-center">
+            <h2 className="text-4xl font-bold mb-4 text-center text-indigo-600">
               Ajouter une leçon
             </h2>
             <label className="block">
-              Titre global :
+              <span className="text-lg font-semibold">Titre global :</span>
               <input
                 type="text"
                 value={globalTitle}
                 onChange={(e) => setGlobalTitle(e.target.value)}
-                className="bg-gray-200 w-full p-2 rounded-md mb-4"
+                className="bg-gray-100 w-full p-2 rounded-md mb-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               />
             </label>
             <div className="flex flex-col space-y-4">
               {lessonData.map((lesson, index) => (
-                <div key={index} className="flex flex-col space-y-4">
+                <div
+                  key={index}
+                  className="flex flex-col space-y-4 p-4 border rounded-lg shadow-md"
+                >
                   {lesson.isOne == 1 ? (
                     <ReactQuill
                       value={lesson.valeur}
@@ -123,33 +125,36 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
                           target: { name: "valeur", value },
                         })
                       }
-                      className="bg-gray-200 w-1/2 mx-auto text-center rounded-md"
+                      className="bg-gray-100 w-full text-center rounded-md"
                     />
                   ) : (
                     <div>
-                      <label>Uploader une image</label>
+                      <label className="block text-lg font-semibold">
+                        Uploader une image
+                      </label>
                       <input
                         type="file"
                         accept="image/*"
                         name="image"
                         onChange={(e) => handleInputChange(index, e)}
+                        className="mt-2"
                       />
                       {lesson.valeur && (
                         <img
                           src={lesson.valeur}
                           alt="Uploaded"
-                          className="w-1/2 mx-auto"
+                          className="w-full h-auto mt-4 rounded-lg shadow-md"
                         />
                       )}
                     </div>
                   )}
                   <label className="block">
-                    Position :
+                    <span className="text-lg font-semibold">Position :</span>
                     <select
                       name="position"
                       value={lesson.position}
                       onChange={(e) => handleInputChange(index, e)}
-                      className="bg-gray-200 w-1/2 mx-auto text-center rounded-md"
+                      className="bg-gray-100 w-full text-center rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent mt-2"
                     >
                       {Array.from({ length: lessonData.length }).map((_, i) => (
                         <option key={i + 1} value={i + 1}>
@@ -159,12 +164,14 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
                     </select>
                   </label>
                   <label className="block">
-                    Type de contenu :
+                    <span className="text-lg font-semibold">
+                      Type de contenu :
+                    </span>
                     <select
                       name="isOne"
                       value={lesson.isOne}
                       onChange={(e) => handleInputChange(index, e)}
-                      className="bg-gray-200 w-1/2 mx-auto text-center rounded-md"
+                      className="bg-gray-100 w-full text-center rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent mt-2"
                     >
                       <option value={1}>Texte</option>
                       <option value={2}>Image</option>
@@ -172,28 +179,28 @@ const ModalAddLesson = ({ onClose, isOpen }) => {
                   </label>
                   <button
                     onClick={() => removeContent(index)}
-                    className="bg-red-500 text-white px-4 py-2 rounded-md"
+                    className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300"
                   >
                     Supprimer
                   </button>
-                  <hr />
+                  <hr className="border-t border-gray-300" />
                 </div>
               ))}
               <button
                 onClick={addNewContent}
-                className="bg-green-500 text-white px-4 py-2 rounded-md"
+                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300"
               >
                 Ajouter un contenu
               </button>
               <button
                 onClick={handleAddLesson}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
               >
                 Ajouter la leçon
               </button>
               <button
                 onClick={onClose}
-                className="absolute right-5 top-0 px-3 py-1 bg-red-600 text-white rounded-full mt-4 ml-2"
+                className="absolute right-5 top-0 px-3 py-1 bg-red-600 text-white rounded-full mt-4 ml-2 hover:bg-red-700 transition duration-300"
               >
                 X
               </button>

@@ -20,11 +20,13 @@ var maoRouter = require("./routes/mao");
 //test
 var app = express();
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(cors({
-  origin: process.env.REACT_APP_FRONT_URL,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-}));
+app.use(
+  cors({
+    origin: process.env.REACT_APP_FRONT_URL,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // view engine setup
 // app.set("views", path.join(__dirname, "views"));
@@ -37,7 +39,7 @@ mongoose
     console.log("LA CAVALERIE EST LA ");
   })
   .catch((error) => {
-    console.log(error);
+    console.log("erreur back" + error);
   });
 
 app.use(logger("dev"));

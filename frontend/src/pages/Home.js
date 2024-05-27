@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import Granim from "granim";
 import MAO from "../ressources/image/Mao2.png";
 import Théorie_musical from "../ressources/image/TheorieMusical.png";
 import CreationMusical from "../ressources/image/CreationMusical.png";
@@ -31,34 +30,6 @@ export default function Home() {
 
   useEffect(() => {
     Ilogout();
-    const granimInstances = [];
-
-    linksData.forEach((link, index) => {
-      const granimElement = document.getElementById(`granim-canvas-${index}`);
-      const granimInstance = new Granim({
-        element: granimElement,
-        name: `basic-gradient-${index}`,
-        direction: "diagonal",
-        opacity: [1, 1],
-        isPausedWhenNotInView: true,
-        states: {
-          "default-state": {
-            gradients: [
-              ["#222A39", "#3A598D"], // Dégradé bleu clair
-              ["#3A598D", "#222A39"], // Dégradé bleu clair
-            ],
-            transitionSpeed: 2000,
-          },
-        },
-      });
-      granimInstances.push(granimInstance);
-    });
-
-    return () => {
-      granimInstances.forEach((instance) => {
-        instance.destroy();
-      });
-    };
   }, []);
 
   return (
@@ -76,13 +47,11 @@ export default function Home() {
           <Link
             key={index}
             to={link.to}
-            className="relative pl-2 pr-2"
+            className="relative pl-2 pr-2 gradient rounded-3xl"
+            // ["#222A39", "#3A598D"], // Dégradé bleu clair
+            // ["#3A598D", "#222A39"],
             style={{ overflow: "hidden" }}
           >
-            <canvas
-              id={`granim-canvas-${index}`}
-              className="absolute top-0 left-0 w-full h-full -z-10 rounded-3xl"
-            ></canvas>
             <div className="flex flex-col items-center justify-cente p-6">
               <img
                 className="h-48 mb-4 hover:scale-105 hover:opacity-75 transition duration-300"

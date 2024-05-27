@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
-import AuthContext from "../auth/AuthContext";
+import AuthContext from "../../auth/AuthContext";
 import ModalInscription from "./ModalInscription";
-import Oeil from "../ressources/image/oeil.png";
-import OeilB from "../ressources/image/oeilB.png";
-import Granim from "granim";
+import Oeil from "../../ressources/image/oeil.png";
+import OeilB from "../../ressources/image/oeilB.png";
 
 const Connexion = () => {
   const [username, setUsername] = useState("");
@@ -18,29 +17,6 @@ const Connexion = () => {
   const history = useHistory();
   const gradientRef = useRef(null);
   const { login, logout, Ilogout } = useContext(AuthContext);
-
-  useEffect(() => {
-    const granimInstance = new Granim({
-      element: "#granim-canvas",
-      name: "basic-gradient",
-      direction: "diagonal",
-      opacity: [1, 1],
-      isPausedWhenNotInView: true,
-      states: {
-        "default-state": {
-          gradients: [
-            ["#222A39", "#3A598D"], // Dégradé bleu clair
-            ["#3A598D", "#222A39"], // Dégradé bleu clair
-          ],
-          transitionSpeed: 2000,
-        },
-      },
-    });
-
-    return () => {
-      granimInstance.destroy();
-    };
-  }, []);
 
   useEffect(() => {
     Ilogout();
@@ -94,15 +70,11 @@ const Connexion = () => {
       >
         Connexion
       </h1>
+
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col w-[20em] h-[20em] mx-auto my-[10em] items-center justify-center rounded-xl p-10 shadow-md gap-1 relative"
+        className="flex flex-col gradient w-[20em] h-[20em] mx-auto my-[10em] items-center justify-center rounded-xl p-10 shadow-md gap-1 relative"
       >
-        <canvas
-          id="granim-canvas"
-          className="absolute top-0 left-0 w-full h-full -z-10 rounded-xl"
-          ref={gradientRef}
-        ></canvas>
         <input
           type="text"
           placeholder="Nom d'utilisateur"

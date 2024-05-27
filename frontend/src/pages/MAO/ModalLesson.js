@@ -80,17 +80,16 @@ const ModalLesson = ({ lesson, Duration, onClose }) => {
                       className="w-full max-h-96 lg:max-w-[65%] mx-auto mb-14 mt-14 rounded-2xl"
                     />
                   )}
-                  <div className="flex justify-end relative">
-                    {lesson && (
-                      <p className="font-bold text-right">
-                        Dernière modification le {formatDate(lesson.Date)} par{" "}
-                        {lesson.LastUserModify}
-                      </p>
-                    )}
-                  </div>
                 </div>
               ))}
-
+            <div className="flex justify-end relative">
+              {lesson && (
+                <p className="font-bold text-right">
+                  Dernière modification le {formatDate(lesson.Date)} par{" "}
+                  {lesson.LastUserModify}
+                </p>
+              )}
+            </div>
             <div className="flex justify-between mt-4">
               {localStorage.getItem("Admin") === "true" && (
                 <button

@@ -9,7 +9,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { useHistory } from "react-router-dom";
-import AuthContext from "../auth/AuthContext";
+import AuthContext from "../../auth/AuthContext";
 import axios from "axios";
 
 const ModalInscription = ({ show, onClose }) => {

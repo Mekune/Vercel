@@ -10,6 +10,44 @@ exports.getAllGenres = async (req, res) => {
   }
 };
 
+exports.getAvailableInstrumentsForGenre = async (req, res) => {
+  try {
+    console.log("test");
+    const genreId = req.params.id;
+    console.log("id" + genreId);
+    const genre = await Genre.findById(genreId);
+    console.log("test 2");
+
+    if (!genre) {
+      return res.status(404).json({ error: "Genre not found" });
+    }
+
+    const genreInstruments = genre.Instrument;
+    console.log("test 3");
+
+    const ListeInstruments = require("../models/ListeInstrumentsModel");
+
+    const result = await ListeInstruments.findOne({
+      _id: "6615088d7039689985590873",
+    });
+    let instruments = result.instruments;
+
+    // Tri des deux listes par ordre alphabétique
+    genreInstruments.sort((a, b) => a.localeCompare(b));
+    instruments.sort((a, b) => a.localeCompare(b));
+
+    // Filtrer les instruments disponibles (ceux qui sont dans instruments mais pas dans genreInstruments)
+    const availableInstruments = instruments.filter(
+      (instrument) => !genreInstruments.includes(instrument)
+    );
+
+    console.log("Available instruments: ", availableInstruments);
+    res.status(200).json(availableInstruments);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Ajouter un genre
 exports.addGenre = async (req, res) => {
   try {

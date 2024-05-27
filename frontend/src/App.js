@@ -13,8 +13,8 @@ import Home from "./pages/Home";
 import Théorie_musical from "./pages/Théorie_musical";
 import Création_musical from "./pages/Création_musical";
 import MAO from "./pages/MAO";
-import Connexion from "./pages/Connexion";
-import Inscription from "./pages/Inscription";
+import Connexion from "./pages/Authentification/Connexion";
+import Inscription from "./pages/Authentification/Inscription";
 
 function App() {
   return (

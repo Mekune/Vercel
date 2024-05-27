@@ -94,15 +94,12 @@ const TheorieMusical = () => {
           />
         </div>
         {isAdmin && (
-          <article className="flex flex-col items-center">
-            <div className="text-4xl font-bold text-gray-300 text-center text-shadow-lg mb-4 pt-12">
-              Administrateur
-            </div>
+          <article className="flex flex-col items-center fixed bottom-5 right-5">
             <button
-              className={`px-4 py-2 w-1/2 bg-green-600 text-white rounded-md mt-4 ml-2 hover:bg-green-400 transition duration-${Duration}`}
+              className={`text-white font-bold py-2 px-4 rounded-full bg-green-600  mt-4 ml-2 hover:bg-green-400 transition duration-${Duration}`}
               onClick={handleAddLesson}
             >
-              Ajouter
+              +
             </button>
           </article>
         )}

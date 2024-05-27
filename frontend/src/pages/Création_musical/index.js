@@ -89,7 +89,7 @@ export default function Création_musical() {
         >
           Création Musical
         </h1>
-        <div className="flex items-center justify-center mb-8 text-black">
+        <div className="flex items-center justify-center -mb-12 text-black">
           <input
             type="text"
             placeholder="Rechercher par titre de genre..."
@@ -99,27 +99,22 @@ export default function Création_musical() {
           />
         </div>
         {isAdmin && (
-          <article className="flex flex-col items-center">
-            <div className="text-4xl font-bold text-gray-300 text-center text-shadow-lg mb-4 pt-12">
-              Administrateur
-            </div>
-            <div className="flex">
-              <button
-                className={`px-2 py-2 w-1/2 bg-green-600 text-white rounded-md mt-4 ml-2 hover:bg-green-400 transition duration-${Duration}`}
-                onClick={handleAddGenre}
-              >
-                Ajouter genre
-              </button>
-              <button
-                className={`px-4 py-2 w-1/2 bg-green-600 text-white rounded-md mt-4 ml-2 hover:bg-green-400 transition duration-${Duration}`}
-                onClick={handleAddInstrument}
-              >
-                Gérer les instrument
-              </button>
-            </div>
+          <article className="fixed flex flex-col items-center bottom-5 right-5">
+            <button
+              className={` fixed bottom-4 right-5s z-10 text-white font-bold py-2 px-4 rounded-full bg-green-600  mt-4 ml-2 hover:bg-green-400 transition duration-${Duration}`}
+              onClick={handleAddGenre}
+            >
+              +
+            </button>
+            <button
+              className={`fixed bottom-16 right-5 text-white font-bold py-2 px-3 rounded-full bg-green-600  mt-4 ml-2 hover:bg-green-400 transition duration-${Duration}`}
+              onClick={handleAddInstrument}
+            >
+              🎹
+            </button>
           </article>
         )}
-        <article className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 pt-20 pb-20 pl-10 pr-10">
+        <article className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-32 pt-20 pb-20 pl-10 pr-10">
           {filteredGenres.map((genre) => (
             <div
               onClick={() => handleOpenModal(genre)}

@@ -2,8 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
-import AuthContext from "../auth/AuthContext";
-import Granim from "granim";
+import AuthContext from "../../auth/AuthContext";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -15,29 +14,6 @@ const LoginForm = () => {
   const history = useHistory();
   const { login } = useContext(AuthContext);
   const gradientRef = useRef(null);
-
-  useEffect(() => {
-    const granimInstance = new Granim({
-      element: "#granim-canvas",
-      name: "basic-gradient",
-      direction: "diagonal",
-      opacity: [1, 1],
-      isPausedWhenNotInView: true,
-      states: {
-        "default-state": {
-          gradients: [
-            ["#222A39", "#3A598D"], // Dégradé bleu clair
-            ["#3A598D", "#222A39"], // Dégradé bleu clair
-          ],
-          transitionSpeed: 2000,
-        },
-      },
-    });
-
-    return () => {
-      granimInstance.destroy();
-    };
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -95,11 +71,6 @@ const LoginForm = () => {
           background: "linear-gradient(145deg, #222A39, #3A598D)",
         }}
       >
-        <canvas
-          id="granim-canvas"
-          className="absolute top-0 left-0 w-full h-full -z-10 rounded-xl"
-          ref={gradientRef}
-        ></canvas>
         <input
           type="text"
           name="username"
