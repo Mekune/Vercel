@@ -138,18 +138,34 @@ export default function ModalAddInstrument({ isOpen, onClose }) {
                   </button>
                 </div>
                 {wouldDelete && (
-                  <ul className="text-center flex flex-wrap">
-                    {availableInstruments.map((availableInstrument, index) => (
-                      <React.Fragment key={index}>
-                        <li
-                          className="text-blue-700 cursor-pointer m-5 inline-block"
-                          onClick={() => handleInstrumentClick(index)}
-                        >
-                          {availableInstrument}
-                        </li>
-                      </React.Fragment>
-                    ))}
-                  </ul>
+                  <div className="flex justify-center">
+                    <ul className="text-center flex flex-col">
+                      {availableInstruments
+                        .slice(0, Math.ceil(availableInstruments.length / 2))
+                        .map((availableInstrument, index) => (
+                          <li
+                            key={index}
+                            className="text-blue-700 cursor-pointer m-3"
+                            onClick={() => handleInstrumentClick(index)}
+                          >
+                            {availableInstrument}
+                          </li>
+                        ))}
+                    </ul>
+                    <ul className="text-center flex flex-col">
+                      {availableInstruments
+                        .slice(Math.ceil(availableInstruments.length / 2))
+                        .map((availableInstrument, index) => (
+                          <li
+                            key={index}
+                            className="text-blue-700 cursor-pointer m-3"
+                            onClick={() => handleInstrumentClick(index)}
+                          >
+                            {availableInstrument}
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
                 )}
               </div>
             </div>

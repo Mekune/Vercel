@@ -15,7 +15,6 @@ const Connexion = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const history = useHistory();
-  const gradientRef = useRef(null);
   const { login, logout, Ilogout } = useContext(AuthContext);
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const Connexion = () => {
   return (
     <section className="h-screen">
       <h1
-        className="mb-4 pt-[1em] text-gray-300 text-8xl font-bold text-center"
+        className="mb-4 pt-[1em] text-gray-300  text-6xl sm:text-8xl font-bold text-center"
         style={{ textShadow: "10px 5px 0px rgba(0, 0, 0, 1)" }}
       >
         Connexion

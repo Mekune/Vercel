@@ -65,7 +65,7 @@ const ModalGenre = ({ genre, isAdmin, Duration, onClose }) => {
     >
       <div className="fixed inset-0 flex items-center justify-center z-50 text-gray-800">
         <div className="absolute inset-0 bg-gray-800 opacity-75"></div>
-        <div className="relative bg-gray-300 p-8 rounded-lg z-50 w-4/6 min-h-4/6 flex flex-col">
+        <div className="relative bg-gray-300 p-8 rounded-lg z-50 md:4/6 lg:w-2/6 min-h-4/6 flex flex-col">
           <h2 className="text-4xl font-bold mb-4 text-center">
             {genre && genre?.Titre}
           </h2>
