@@ -82,7 +82,7 @@ const TheorieMusical = () => {
           className="mb-4 text-gray-300 text-7xl sm:text-8xl font-bold pt-12 text-center"
           style={{ textShadow: "10px 5px 0px rgba(0, 0, 0, 1)" }}
         >
-          Théorie Musicale
+          MAO
         </h1>
         <div className="flex items-center justify-center mb-8 text-black">
           <input

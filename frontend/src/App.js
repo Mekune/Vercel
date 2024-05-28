@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -7,6 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
+import { Scrollbars } from "react-custom-scrollbars"; // Import du composant Scrollbars
 import ProtectedRoute from "./auth/ProtectedRoute";
 import ProtectedInscriptionRoute from "./auth/ProtectedInscriptionRoute";
 import Home from "./pages/Home";
@@ -20,21 +20,26 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Switch>
-          <Route path="/Connexion" component={Connexion} />
-          <ProtectedRoute path="/Home" component={Home} />
-          <ProtectedRoute path="/Théorie_musical" component={Théorie_musical} />
-          <ProtectedRoute
-            path="/Création_musical"
-            component={Création_musical}
-          />
-          <ProtectedRoute path="/MAO" component={MAO} />
-          <ProtectedInscriptionRoute
-            path="/Inscription"
-            component={Inscription}
-          />
-          <Redirect from="/" to="/Connexion" />
-        </Switch>
+        <Scrollbars style={{ width: "100%", height: "100vh" }}>
+          <Switch>
+            <Route path="/Connexion" component={Connexion} />
+            <ProtectedRoute path="/Home" component={Home} />
+            <ProtectedRoute
+              path="/Théorie_musical"
+              component={Théorie_musical}
+            />
+            <ProtectedRoute
+              path="/Création_musical"
+              component={Création_musical}
+            />
+            <ProtectedRoute path="/MAO" component={MAO} />
+            <ProtectedInscriptionRoute
+              path="/Inscription"
+              component={Inscription}
+            />
+            <Redirect from="/" to="/Connexion" />
+          </Switch>
+        </Scrollbars>
       </Router>
     </AuthProvider>
   );
