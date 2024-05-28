@@ -160,14 +160,14 @@ const ModalProfil = ({ show, onClose }) => {
             <button
               type="button"
               onClick={toggleModify}
-              className="absolute bottom-5 left-5 w-52 px-4 py-2 bg-gray-400 text-white rounded-md mt-4"
+              className="absolute bottom-5 left-5 w-36 sm:w-52 px-4 py-2 bg-gray-400 text-white rounded-md mt-4"
             >
               {modify ? "Annuler la modification" : "Modifier le profil"}
             </button>
             <button
               type="button"
               onClick={toggleAdmin}
-              className={`absolute bottom-5 right-5 w-52 px-4 py-2 rounded-md mt-4 transition duration-300 ${
+              className={`absolute bottom-5 right-5 w-36 sm:w-52 px-4 py-2 rounded-md mt-4 transition duration-300 ${
                 isAdmin
                   ? "bg-red-600 hover:bg-red-700 text-white"
                   : "bg-blue-500 hover:bg-blue-600 text-white"

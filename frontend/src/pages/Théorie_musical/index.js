@@ -79,7 +79,7 @@ const TheorieMusical = () => {
         }`}
       >
         <h1
-          className="mb-4 text-gray-300 text-8xl font-bold pt-12 text-center"
+          className="mb-4 text-gray-300 text-7xl sm:text-8xl font-bold pt-12 text-center"
           style={{ textShadow: "10px 5px 0px rgba(0, 0, 0, 1)" }}
         >
           Théorie Musicale
@@ -112,7 +112,7 @@ const TheorieMusical = () => {
               className="relative bg-indigo-950 shadow-2xl shadow-gray-500 rounded-[6em] w-[20em] h-[13em] flex justify-center items-center cursor-pointer hover:opacity-75 hover:scale-105 transition-all"
               style={{ marginBottom: "2rem" }}
             >
-              <h2 className="text-gray-900 font-bold text-3xl">
+              <h2 className="text-gray-900 font-bold text-2xl sm:text-3xl">
                 {lesson.Titre}
               </h2>
             </div>
