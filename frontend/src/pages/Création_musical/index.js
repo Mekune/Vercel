@@ -84,7 +84,7 @@ export default function Création_musical() {
         }`}
       >
         <h1
-          className="mb-10 pt-[1em] text-gray-300 text-8xl font-bold text-center"
+          className="mb-10 pt-[1em] text-gray-300 text-7xl sm:text-8xl font-bold text-center"
           style={{ textShadow: "10px 5px 0px rgba(0, 0, 0, 1)" }}
         >
           Création Musical
