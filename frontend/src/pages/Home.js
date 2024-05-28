@@ -36,18 +36,18 @@ export default function Home() {
     <section className="flex flex-col items-center h-screen text-gray-200 md:gap-0 lg:gap-32">
       <div className="mb-10">
         <h1
-          className="mb-4 pt-[1em] text-gray-300 text-8xl font-bold text-center"
+          className="mb-4 pt-[1em] text-gray-300 text-7xl sm:text-8xl font-bold text-center"
           style={{ textShadow: "10px 5px 0px rgba(0, 0, 0, 1)" }}
         >
           BeatLab
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-10 gap-12 sm:gap-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-12 md:gap-10 gap-28 sm:gap-20">
         {linksData.map((link, index) => (
           <Link
             key={index}
             to={link.to}
-            className="relative pl-2 pr-2 gradient rounded-3xl"
+            className="relative sm:pl-2 sm:pr-2 gradient rounded-3xl"
             // ["#222A39", "#3A598D"], // Dégradé bleu clair
             // ["#3A598D", "#222A39"],
             style={{ overflow: "hidden" }}

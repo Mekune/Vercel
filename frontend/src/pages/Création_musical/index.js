@@ -114,7 +114,7 @@ export default function Création_musical() {
             </button>
           </article>
         )}
-        <article className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-32 pt-20 pb-20 pl-10 pr-10">
+        <article className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 pt-20 pb-20">
           {filteredGenres.map((genre) => (
             <div
               onClick={() => handleOpenModal(genre)}
